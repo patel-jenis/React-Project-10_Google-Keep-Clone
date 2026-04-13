@@ -10,7 +10,7 @@ const LabelPage = () => {
 
     return (
         <div className="p-5">
-            <h2 className="text-xl font-semibold mb-4">{name}</h2>
+            <h2 className="text-xl font-semibold mb-4">No notes yet...</h2>
 
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {filtered.map(note => (

@@ -45,7 +45,7 @@ const NoteCard = ({ note }) => {
     };
 
     const changeColor = (color) => {
-        dispatch(updateNote({ id: note.id, color, image: "" }));
+        dispatch(updateNote({ id: note.id, color }));
         setShowColors(false);
     };
 
@@ -85,7 +85,7 @@ const NoteCard = ({ note }) => {
 
     return (
         <div className="mb-1">
-            <div className="rounded-2xl border shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden bg-white">
+            <div className="rounded-2xl border shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden">
                 {userImages.length > 0 && (
                     <>
                         {userImages.length === 1 && (
@@ -142,9 +142,10 @@ const NoteCard = ({ note }) => {
                         )}
                     </>
                 )}
-                <div className="sm:p-5 p-3 relative"
+                <div
+                    className="sm:p-5 p-3 relative"
                     style={{
-                        backgroundColor: note.color || "#fff",
+                        backgroundColor: note.image ? undefined : (note.color || "#ffffff"),
                         backgroundImage: note.image ? `url(${note.image})` : "none",
                         backgroundSize: "cover",
                         backgroundPosition: "center",

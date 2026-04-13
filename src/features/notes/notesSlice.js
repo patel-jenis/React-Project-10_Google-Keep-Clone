@@ -23,8 +23,8 @@ const notesSlice = createSlice({
                 title: action.payload.title,
                 content: action.payload.content,
                 color: "#ffffff",
-                image: "",
-                images: [],
+                image: null,
+                labels: [],
             });
 
             save("notes", state.notes);
@@ -117,12 +117,12 @@ const notesSlice = createSlice({
 
             if (color !== undefined) {
                 note.color = color;
-                note.image = "";
+                note.image = null; // ✅ FIX
             }
 
             if (image !== undefined) {
                 note.image = image;
-                note.color = "";
+                note.color = null; // ✅ FIX
             }
 
             if (images !== undefined) {
@@ -153,7 +153,7 @@ const notesSlice = createSlice({
             save("labels", state.labels);
             save("notes", state.notes);
         },
-        
+
         toggleLabel: (state, action) => {
             const { id, label } = action.payload;
 
