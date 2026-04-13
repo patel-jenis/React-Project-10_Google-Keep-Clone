@@ -42,9 +42,9 @@ const Sidebar = ({ open }) => {
                     </NavLink>
                 ))}
 
-                <div onClick={() => setShowModal(true)} className="flex items-center px-4 py-3 cursor-pointer hover:bg-gray-100">
+                <div onClick={() => setShowModal(true)} className={`flex items-center px-4 py-3 cursor-pointer transition-all duration-200 ${open ? "gap-4" : "justify-center"} hover:bg-gray-100`}>
                     <Pencil />
-                    {open && <span className="ml-4">Edit Labels</span>}
+                    {open && <span>Edit Labels</span>}
                 </div>
 
                 {showModal && <LabelModal close={() => setShowModal(false)} />}
